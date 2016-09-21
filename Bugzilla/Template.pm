@@ -292,7 +292,10 @@ sub quoteUrls {
     for (my $i = $#things; $i >= 0; $i--) {
         $text =~ s/\x{FDD2}($i)\x{FDD3}/$things[$i]/eg;
     }
-
+    
+    $text =~ s/\[img src=&quot;/<img src="/g;
+    $text =~ s/&quot; width=98%\/\]/" width=98%\/>/g;
+    
     return $text;
 }
 
